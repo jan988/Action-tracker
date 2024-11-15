@@ -1,0 +1,100 @@
+<!-- templates/price_history.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price History - {{ product.name }}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.1/Recharts.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .product-name {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .product-name a {
+            color: #2c5282;
+            text-decoration: none;
+        }
+        .product-name a:hover {
+            text-decoration: underline;
+        }
+        .back-button {
+            background: #4299e1;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #3182ce;
+        }
+        .chart-container {
+            margin-top: 20px;
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="product-name">
+            <a href="{{ product.url }}" target="_blank">{{ product.name }}</a>
+        </div>
+        <a href="{{ url_for('index') }}" class="back-button">Back to Overview</a>
+    </div>
+    
+    <div id="chart" class="chart-container"></div>
+
+    <script>
+        const data = {{ product.history | tojson | safe }};
+        
+        const { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } = Recharts;
+        
+        const Chart = () => {
+            return React.createElement(LineChart, {
+                width: document.querySelector('.chart-container').offsetWidth,
+                height: 400,
+                data: data,
+                margin: { top: 5, right: 30, left: 20, bottom: 5 }
+            }, [
+                React.createElement(CartesianGrid, { strokeDasharray: "3 3" }),
+                React.createElement(XAxis, { dataKey: "date" }),
+                React.createElement(YAxis, { 
+                    label: { 
+                        value: "Price (Kč)", 
+                        angle: -90, 
+                        position: "insideLeft" 
+                    } 
+                }),
+                React.createElement(Tooltip),
+                React.createElement(Legend),
+                React.createElement(Line, {
+                    type: "monotone",
+                    dataKey: "price",
+                    stroke: "#8884d8",
+                    name: "Lowest Price"
+                })
+            ]);
+        };
+
+        ReactDOM.render(
+            React.createElement(Chart),
+            document.getElementById('chart')
+        );
+    </script>
+</body>
+</html>

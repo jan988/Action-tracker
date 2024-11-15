@@ -1,0 +1,69 @@
+{
+  "beautifulsoup_parsing": [
+    {
+      "shop_name": "BENE NÁPOJE",
+      "price": "49,90 Kč",
+      "amount": "260 g",
+      "expiration": "platí do soboty 30. 11.",
+      "shops_valid": "platí pro 2 nejbližší pobočky",
+      "additional_note": "vybrané druhy, 235 - 260 g"
+    },
+    {
+      "shop_name": "Globus",
+      "price": "64,90 Kč",
+      "amount": "260 g",
+      "expiration": "st 13. 11.  – út 19. 11.",
+      "shops_valid": "platí pro 4 nejbližší pobočky",
+      "additional_note": "různé druhy, 235 - 260 g"
+    },
+    {
+      "shop_name": "Globus",
+      "price": "44,90 Kč",
+      "amount": "170 g",
+      "expiration": "dnes končí",
+      "shops_valid": "platí pro 3 nejbližší pobočky",
+      "additional_note": "různé druhy, 150 - 170 g"
+    },
+    {
+      "shop_name": "BILLA",
+      "price": "49,90 Kč",
+      "amount": "180 g",
+      "expiration": "st 13. 11.  – út 19. 11.",
+      "shops_valid": "platí pro 73 nejbližších poboček",
+      "additional_note": "různé druhy, do vyprodání zásob, pouze ve vybraných prodejnách"
+    },
+    {
+      "shop_name": "Kaufland",
+      "price": "49,90 Kč",
+      "amount": "170 g",
+      "expiration": "dnes končí",
+      "shops_valid": "platí pro 17 nejbližších poboček",
+      "additional_note": "různé druhy, 150 - 170 g"
+    },
+    {
+      "shop_name": "FLOP TOP",
+      "price": "79,90 Kč",
+      "amount": "260 g",
+      "expiration": "st 13. 11.  – út 19. 11.",
+      "shops_valid": "platí pro 16 nejbližších poboček",
+      "additional_note": "vybrané druhy, 235 - 260 g"
+    },
+    {
+      "shop_name": "FLOP",
+      "price": "79,90 Kč",
+      "amount": "260 g",
+      "expiration": "st 13. 11.  – út 19. 11.",
+      "shops_valid": "platí pro 1 nejbližší pobočku",
+      "additional_note": "vybrané druhy, 235 - 260 g"
+    },
+    {
+      "shop_name": "JIP\n                                                                                                                        CC Cash & Carry",
+      "price": "27,90 Kč",
+      "amount": "90 g",
+      "expiration": "platí do úterý 19. 11.",
+      "shops_valid": "platí pro 1 nejbližší pobočku",
+      "additional_note": "mléčná, hořká"
+    }
+  ],
+  "ai_response": "Here is the JSON representation of the prices of Čokoláda Studentská pečeť Orion in various shops, based on the provided HTML content:\n\n```json\n[\n  {\n    \"shop\": \"BENE NÁPOJE\",\n    \"price\": \"49,90 Kč\",\n    \"grams\": \"260 g\",\n    \"expiration\": \"Saturday, 30. 11.\",\n    \"validFor\": \"platí pro 2 nejbližší pobočky\"\n  },\n  {\n    \"shop\": \"Globus\",\n    \"price\": \"64,90 Kč\",\n    \"grams\": \"260 g\",\n    \"expiration\": \"Wednesday, 13. 11. – Tuesday, 19. 11.\",\n    \"validFor\": \"platí pro 4 nejbližší pobočky\"\n  },\n  {\n    \"shop\": \"Globus\",\n    \"price\": \"44,90 Kč\",\n    \"grams\": \"170 g\",\n    \"expiration\": \"today\",\n    \"validFor\": \"platí pro 3 nejbližší pobočky\"\n  },\n  {\n    \"shop\": \"BILLA\",\n    \"price\": \"49,90 Kč\",\n    \"grams\": \"180 g\",\n    \"expiration\": \"Wednesday, 13. 11. – Tuesday, 19. 11.\",\n    \"validFor\": \"platí pro 73 nejbližších poboček\"\n  },\n  {\n    \"shop\": \"Kaufland\",\n    \"price\": \"49,90 Kč\",\n    \"grams\": \"170 g\",\n    \"expiration\": \"today\",\n    \"validFor\": \"platí pro 17 nejbližších poboček\"\n  },\n  {\n    \"shop\": \"FLOP TOP\",\n    \"price\": \"79,90 Kč\",\n    \"grams\": \"260 g\",\n    \"expiration\": \"Wednesday, 13. 11. – Tuesday, 19. 11.\",\n    \"validFor\": \"platí pro 16 nejbližších poboček\"\n  },\n  {\n    \"shop\": \"FLOP\",\n    \"price\": \"79,90 Kč\",\n    \"grams\": \"260 g\",\n    \"expiration\": \"Wednesday, 13. 11. – Tuesday, 19. 11.\",\n    \"validFor\": \"platí pro 1 nejbližší pobočku\"\n  },\n  {\n    \"shop\": \"JIP\",\n    \"price\": \"27,90 Kč\",\n    \"grams\": \"90 g\",\n    \"expiration\": \"Tuesday, 19. 11.\",\n    \"validFor\": \"platí pro 1 nejbližší pobočku\"\n  }\n]\n```\n\nThis JSON array contains all the offers from the provided HTML, detailing the shop name, price, weight in grams, expiration date of the discount, and the number of nearby branches where the discount is valid."
+}

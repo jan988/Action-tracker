@@ -1,0 +1,110 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Price Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .product-name {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .product-name a {
+            color: #2c5282;
+            text-decoration: none;
+        }
+        .product-name a:hover {
+            text-decoration: underline;
+        }
+        .history-button {
+            background: #4299e1;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .history-button:hover {
+            background: #3182ce;
+        }
+        .deals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .deal {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .shop-name {
+            font-weight: bold;
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 1.2em;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        .details {
+            color: #4a5568;
+            font-size: 0.9em;
+        }
+        .note {
+            margin-top: 10px;
+            font-style: italic;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Price Tracker</h1>
+    {% for product in products %}
+    <div class="product">
+        <div class="product-header">
+            <div class="product-name">
+                <a href="{{ product.url }}" target="_blank">{{ product.name }}</a>
+            </div>
+            <a href="{{ url_for('product_history', product_id=product.id) }}" class="history-button">See Price History</a>
+        </div>
+        <div class="deals">
+            {% for deal in product.deals %}
+            <div class="deal">
+                <div class="shop-name">{{ deal.shop_name }}</div>
+                <div class="price">{{ deal.price }} Kč</div>
+                <div class="details">
+                    <div>Amount: {{ deal.amount }}</div>
+                    <div>Price per gram: {{ "%.2f"|format(deal.price_per_gram) }} Kč</div>
+                    <div>Expiration: {{ deal.expiration }}</div>
+                    <div>Available in: {{ deal.shops_valid }}</div>
+                    {% if deal.additional_note %}
+                    <div class="note">{{ deal.additional_note }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
